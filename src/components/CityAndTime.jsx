@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useEffect } from 'react';
+import React from 'react';
 
 
 const CityAndTime = ({cityName, lat, lon, setLat, setLon}) => {
