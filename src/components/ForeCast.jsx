@@ -2,22 +2,7 @@ import React from 'react';
 
 
 const ForeCast = ({ forecast }) => {
-    // const forecast = [
-    //     {temperature: "20°C", day: "Friday", date: "1 Sep", icon:"⛅"},
-    //     {temperature: "22°C", day: "Saturday", date: "2 Sep", icon:"🌤️"},
-    //     {temperature: "27°C", day: "Sunday", date: "3 Sep", icon:"☀️"},
-    //     {temperature: "18°C", day: "Monday", date: "4 Sep", icon:"🌦️"},
-    //     {temperature: "16°C", day: "Tuesday", date: "5 Sep", icon:"🌧️"},
-    // ]
 
-    // const hourlyForecast = [
-    //     {time: "12:00",icon: "☀️", degree: "26°C", windspeed: '3km/h', },
-    //     {time: "15:00",icon: "☀️", degree: "27°C", windspeed: '2km/h', },
-    //     {time: "18:00",icon: "🌤️", degree: "27°C", windspeed: '2km/h', },
-    //     {time: "21:00",icon: "🌙", degree: "25°C", windspeed: '3km/h', },
-    //     {time: "00:00",icon: "🌙", degree: "22°C", windspeed: '3km/h', },
-
-    // ]
 
     const dailyForeCast=forecast.reduce((acc, item) =>{
       const date = new Date(item.dt * 1000).toLocaleDateString()
@@ -40,7 +25,7 @@ const ForeCast = ({ forecast }) => {
     }))
 
   return (
-    <div className="flex">
+    <div className="flex flex-col lg:flex-row">
       <div className="xl:w-96 w-full h-96 px-4 py-4 bg-[#050e1fde] shadow-2xl shadow-black  m-4 mt-10 rounded-lg text-white">
         <h2 className="flex items-center justify-center font-bold text-2xl">5 Days Forecast</h2>
         {dailyForeCast.map((cast, index)=>(
@@ -53,7 +38,7 @@ const ForeCast = ({ forecast }) => {
       </div>
       <div className="flex-grow h-auto px-4 py-4 bg-[#050e1fde] shadow-2xl m-4 mt-10 rounded-lg text-white">
          <h1 className="text-2xl font-bold mb-4 flex items-center justify-center ">Hourly Forecast</h1>
-         <div className="flex justify-around items-center gap-4 h-54 mt-10">
+         <div className="flex flex-wrap justify-around items-center gap-4 h-54 mt-10">
             {hourlyForeCast.map((hourCast, index)=>(
               <div key={index} className="flex flex-col items-center gap-5 bg-[#1c2938] rounded-lg p-4 w-28 text-center shadow-md">
                 <p className="text-sm font-medium">{hourCast.time}</p>
