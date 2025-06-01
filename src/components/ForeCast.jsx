@@ -1,3 +1,6 @@
+import React from 'react';
+
+
 const ForeCast = ({ forecast }) => {
     // const forecast = [
     //     {temperature: "20°C", day: "Friday", date: "1 Sep", icon:"⛅"},
